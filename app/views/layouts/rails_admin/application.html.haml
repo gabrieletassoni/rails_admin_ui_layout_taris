@@ -8,6 +8,11 @@
     = csrf_meta_tag
     = stylesheet_link_tag "rails_admin/rails_admin.css", media: :all
     = javascript_include_tag "rails_admin/rails_admin.js"
+    = favicon_link_tag 'thecore/apple-touch-icon-iphone-60x60.png', rel: 'icon', type: 'image/png'
+    = favicon_link_tag 'thecore/apple-touch-icon-ipad-76x76.png', rel: 'apple-touch-icon', type: 'image/png',  sizes: "60x60"
+    = favicon_link_tag 'thecore/apple-touch-icon-ipad-retina-152x152.png', rel: 'apple-touch-icon', type: 'image/png',  sizes: "144x144"
+    = favicon_link_tag 'thecore/apple-touch-icon-iphone-60x60.png', rel: 'apple-touch-icon', type: 'image/png'
+    = favicon_link_tag 'thecore/apple-touch-icon-iphone-retina-120x120.png', rel: 'apple-touch-icon', type: 'image/png', sizes: "114x114"
     -# Initialize JS simple i18n
     :javascript
       RailsAdmin.I18n.init('#{I18n.locale}', JSON.parse("#{j I18n.t("admin.js").to_json}"))
