@@ -13,10 +13,11 @@
     = favicon_link_tag 'thecore/apple-touch-icon-ipad-retina-152x152.png', rel: 'apple-touch-icon', type: 'image/png',  sizes: "144x144"
     = favicon_link_tag 'thecore/apple-touch-icon-iphone-60x60.png', rel: 'apple-touch-icon', type: 'image/png'
     = favicon_link_tag 'thecore/apple-touch-icon-iphone-retina-120x120.png', rel: 'apple-touch-icon', type: 'image/png', sizes: "114x114"
+  %body.rails_admin
+    #admin-js{:'data-i18n-options' => I18n.t("admin.js").to_json}
     -# Initialize JS simple i18n
     :javascript
-      RailsAdmin.I18n.init('#{I18n.locale}', JSON.parse("#{j I18n.t("admin.js").to_json}"))
-  %body.rails_admin
+      RailsAdmin.I18n.init('#{I18n.locale}', document.getElementById("admin-js").dataset.i18nOptions);
     #loading.label.label-warning{style: 'display:none; position:fixed; right:20px; bottom:20px; z-index:100000'}= t('admin.loading')
     %nav.navbar.navbar-default.navbar-fixed-top
       = render "layouts/rails_admin/navigation"
@@ -26,3 +27,16 @@
           = render "layouts/rails_admin/sidebar_navigation"
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
           .content{:'data-pjax-container' => true}= render template: 'layouts/rails_admin/pjax'
+  -#   -# Initialize JS simple i18n
+  -#   :javascript
+  -#     RailsAdmin.I18n.init('#{I18n.locale}', JSON.parse("#{j I18n.t("admin.js").to_json}"))
+  -# %body.rails_admin
+  -#   #loading.label.label-warning{style: 'display:none; position:fixed; right:20px; bottom:20px; z-index:100000'}= t('admin.loading')
+  -#   %nav.navbar.navbar-default.navbar-fixed-top
+  -#     = render "layouts/rails_admin/navigation"
+  -#   .container-fluid
+  -#     .row
+  -#       .col-sm-3.col-md-2.sidebar-nav
+  -#         = render "layouts/rails_admin/sidebar_navigation"
+  -#       .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
+  -#         .content{:'data-pjax-container' => true}= render template: 'layouts/rails_admin/pjax'
