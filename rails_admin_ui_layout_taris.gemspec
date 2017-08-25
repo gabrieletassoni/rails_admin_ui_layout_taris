@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "thecore", "~> 1.0"
+  s.add_dependency "selectize-rails", "~> 0.11"
 end

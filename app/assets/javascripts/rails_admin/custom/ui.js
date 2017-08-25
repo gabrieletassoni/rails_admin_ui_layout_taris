@@ -1,3 +1,4 @@
+//= require selectize
 //= require_tree .
 
 $(document).on('ready pjax:success', function(e) {
