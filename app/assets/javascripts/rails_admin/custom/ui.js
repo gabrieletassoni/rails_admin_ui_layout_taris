@@ -52,8 +52,9 @@ $(function () {
     }
 
     $('.dropdown-header').bind('click', function () {
-        $('.dropdown-header').removeClass('open');
-        $(this).addClass('open');
+        $('.dropdown-header').removeClass('open'); //Rimuove tutte le classi open
+        $(this).toggleClass('open'); // Apre la corrente
+        // Se la corrente è già aperta, allora la chiude
 
         $('.dropdown-header').removeClass('active');
         $('.sub-menu-container').stop().slideUp();
