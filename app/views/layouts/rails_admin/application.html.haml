@@ -33,7 +33,8 @@
             .col-lg-12
               %button#sidebar-collapse{href: "#menu-toggle"}
                 %i.fa.fa-bars
-              %a#app-name.pjax{href: dashboard_path}
+              -# %a#app-name.pjax{href: dashboard_path}
+              %span#app-name
                 = Settings.app_name rescue (_get_plugin_name[0] || 'Rails')
               .content{:'data-pjax-container' => true}
                 = render template: 'layouts/rails_admin/pjax'
