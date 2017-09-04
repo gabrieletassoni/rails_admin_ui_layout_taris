@@ -7,6 +7,38 @@
     %meta{content: "NONE,NOARCHIVE", name: "robots"}
     = csrf_meta_tag
     = stylesheet_link_tag "rails_admin/rails_admin.css", media: :all
+    :css
+      .page-content {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+      .sidebar-nav {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+      .wrapper {
+        display: flex;
+        align-items: stretch;
+      }
+      #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        min-height: 100vh;
+      }
+
+      #sidebar.active {
+        margin-left: -250px;
+      }
+      @media (max-width: 768px) {
+        #sidebar {
+            margin-left: -250px;
+        }
+        #sidebar.active {
+            margin-left: 0;
+        }
+      }
     = javascript_include_tag "rails_admin/rails_admin.js"
     = favicon_link_tag 'thecore/apple-touch-icon-iphone-60x60.png', rel: 'icon', type: 'image/png'
     = favicon_link_tag 'thecore/apple-touch-icon-ipad-76x76.png', rel: 'apple-touch-icon', type: 'image/png',  sizes: "60x60"
@@ -19,14 +51,27 @@
     :javascript
       RailsAdmin.I18n.init('#{I18n.locale}', document.getElementById("admin-js").dataset.i18nOptions);
     #loading.label.label-warning{style: 'display:none; position:fixed; right:20px; bottom:20px; z-index:100000'}= t('admin.loading')
-    %nav.navbar.navbar-default.navbar-fixed-top
-      = render "layouts/rails_admin/navigation"
-    .container-fluid
-      .row
-        .col-sm-3.col-md-2.sidebar-nav
-          = render "layouts/rails_admin/sidebar_navigation"
-        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
-          .content{:'data-pjax-container' => true}= render template: 'layouts/rails_admin/pjax'
+    -# %nav.navbar.navbar-default.navbar-fixed-top
+    -#   = render "layouts/rails_admin/navigation"
+    -# .container-fluid
+    .wrapper
+      %nav#sidebar
+        = render "layouts/rails_admin/secondary_navigation"
+        = render "layouts/rails_admin/sidebar_navigation"
+        = render "layouts/rails_admin/user_navigation"
+      #content
+        %button#sidebarCollapse.slidebar-toggle{href: "#menu-toggle"}
+          %span.sr-only
+            Toggle sidebar
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        - if logout_path.present?
+          %div.exit-button.pull-right= link_to content_tag('span', t('admin.misc.log_out'), class: 'label label-danger'), logout_path, method: logout_method
+        %a#app-name.pjax{href: dashboard_path}
+          = Settings.app_name rescue (_get_plugin_name[0] || 'Rails')
+        .content{:'data-pjax-container' => true}
+          = render template: 'layouts/rails_admin/pjax'
   -#   -# Initialize JS simple i18n
   -#   :javascript
   -#     RailsAdmin.I18n.init('#{I18n.locale}', JSON.parse("#{j I18n.t("admin.js").to_json}"))
@@ -40,3 +85,10 @@
   -#         = render "layouts/rails_admin/sidebar_navigation"
   -#       .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2
   -#         .content{:'data-pjax-container' => true}= render template: 'layouts/rails_admin/pjax'
+
+:javascript
+  $(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+  });

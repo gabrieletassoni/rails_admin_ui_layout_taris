@@ -1,0 +1,5 @@
+%ul.nav.navbar-pills.nav-stacked
+  - if _current_user
+    %li.dropdown-header=t :current_user
+    - if user_link = edit_user_link
+      %li.edit_user_root_link= user_link
