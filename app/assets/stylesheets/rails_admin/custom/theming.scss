@@ -322,3 +322,7 @@ body.rails_admin {
 //     margin-right: 0;
 //   }
 // }
+
+.modal {
+  z-index: 20000;
+}
