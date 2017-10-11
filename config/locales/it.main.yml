@@ -1,9 +1,13 @@
 it:
+  yes: Si
+  no: No
+  error: Errore
+  question: Domanda
   root_actions: "Operazioni"
   admin:
     js:
-      true: True
-      false: False
+      true: Vero
+      false: Falso
       is_present: Is present
       is_blank: Is blank
       date: Date ...
