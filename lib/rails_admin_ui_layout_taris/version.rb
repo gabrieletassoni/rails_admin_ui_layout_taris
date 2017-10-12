@@ -1,3 +1,3 @@
 module RailsAdminUiLayoutTaris
-  VERSION = '1.1.13'
+  VERSION = '1.1.18'
 end
