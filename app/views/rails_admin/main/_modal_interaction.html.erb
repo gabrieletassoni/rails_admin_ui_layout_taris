@@ -17,25 +17,26 @@
 </div>
 
 <script>
-function openModal(title, message, buttonPrimary, buttonSecondary) {
-  $('#modal-interaction-label').text(title);
-  $('#modal-interaction-body').text(message);
-  if(buttonPrimary != null){
-    $('#modal-interaction-primary').text(buttonPrimary.lbl)
-    $('#modal-interaction-primary').on('click', buttonPrimary.func);
+  function openModal(title, message, buttonPrimary, buttonSecondary) {
+    $('#modal-interaction-label').text(title);
+    $('#modal-interaction-body').text(message);
+    if (buttonPrimary != null) {
+      $('#modal-interaction-primary').text(buttonPrimary.lbl)
+      $('#modal-interaction-primary').on('click', buttonPrimary.func);
+    }
+    if (buttonSecondary != null) {
+      $('#modal-interaction-secondary').text(buttonSecondary.lbl)
+      $('#modal-interaction-secondary').on('click', buttonSecondary.func);
+    }
+    $('#modal-interaction').modal('show');
   }
-  if(buttonSecondary != null)
-    $('#modal-interaction-secondary').text(buttonSecondary.lbl)
-    $('#modal-interaction-secondary').on('click', buttonSecondary.func);
-  $('#modal-interaction').modal('show');
-}
-function closeModal(){
-  $('#modal-interaction').modal('hide');
-  $('#modal-interaction-label').text("");
-  $('#modal-interaction-body').text("");
-  $('#modal-interaction-primary').text("");
-  $('#modal-interaction-secondary').text("");
-  $('#modal-interaction-primary').off();
-  $('#modal-interaction-secondary').off();
-}
+  function closeModal() {
+    $('#modal-interaction').modal('hide');
+    $('#modal-interaction-label').text("");
+    $('#modal-interaction-body').text("");
+    $('#modal-interaction-primary').text("");
+    $('#modal-interaction-secondary').text("");
+    $('#modal-interaction-primary').off();
+    $('#modal-interaction-secondary').off();
+  }
 </script>
