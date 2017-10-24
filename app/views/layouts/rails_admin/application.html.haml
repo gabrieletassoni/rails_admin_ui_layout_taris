@@ -21,7 +21,7 @@
     #loading.label.label-warning{style: 'display:none; position:fixed; right:20px; bottom:20px; z-index:100000'}= t('admin.loading')
     -# %nav.navbar.navbar-default.navbar-fixed-top
     -#   = render "layouts/rails_admin/navigation"
-    #wrapper.shitty
+    #wrapper
       #sidebar-wrapper
         .sidebar-nav
           = render "layouts/rails_admin/secondary_navigation"
@@ -35,7 +35,7 @@
                 %i.fa.fa-bars.fa-2x
               -# %a#app-name.pjax{href: dashboard_path}
               %span#app-name
-                = Settings.app_name rescue (_get_plugin_name[0] || 'Rails')
+                = Settings.app_name rescue "Thecore"
               .content{:'data-pjax-container' => true}
                 = render template: 'layouts/rails_admin/pjax'
     = render "rails_admin/main/modal_interaction"
