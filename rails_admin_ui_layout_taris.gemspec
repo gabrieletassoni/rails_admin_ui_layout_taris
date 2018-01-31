@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "thecore", "~> 1.0"
   s.add_dependency "selectize-rails", "~> 0.11"
+  s.add_dependency "rails_admin_ui_dashboard_blocks", "~> 1.0"
+  s.add_dependency "rails_admin_ui_index_cards", "~> 1.0"
 end
