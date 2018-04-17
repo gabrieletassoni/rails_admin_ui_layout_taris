@@ -1,5 +1,17 @@
 //= require selectize
 //= require timer
+//= require froala_editor.min.js
+//= require plugins/align.min.js
+//= require plugins/char_counter.min.js
+//= require plugins/colors.min.js
+//= require plugins/font_family.min.js
+//= require plugins/font_size.min.js
+//= require plugins/line_breaker.min.js
+//= require plugins/link.min.js
+//= require plugins/lists.min.js
+//= require plugins/special_characters.min.js
+//= require plugins/url.min.js
+//= require languages/it.js
 //= require_tree .
 
 $(document).on('ready pjax:success', function(e) {
@@ -20,6 +32,8 @@ $(document).on('ready pjax:success', function(e) {
   } else {
     $('.page-header, .content').removeClass('dashboard');
   }
+
+  $('textarea[data-richtext="froala-wysiwyg"').froalaEditor();
 
   // $(document).ready(function () {
   // Hide and show the sidebar
@@ -86,6 +100,8 @@ $(document).ready(function () {
   $('#sidebar-collapse').on('click', function() {
     $('#wrapper').toggleClass('toggled');
   });
+
+  $('textarea[data-richtext="froala-wysiwyg"').froalaEditor();
 //   // Hide and show the sidebar
 //   // Make the sidebar button shine a bit
 //   setTimeout(function() {
