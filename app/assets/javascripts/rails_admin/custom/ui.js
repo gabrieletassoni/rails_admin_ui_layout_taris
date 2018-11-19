@@ -12,6 +12,7 @@
 //= require plugins/special_characters.min.js
 //= require plugins/url.min.js
 //= require languages/it.js
+//= require rails_admin/custom/ckeditor_ajax
 //= require_tree .
 
 $(document).on('ready pjax:success', function(e) {
