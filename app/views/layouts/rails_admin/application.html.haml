@@ -19,6 +19,7 @@
     = favicon_link_tag 'favicon-16x16.png', rel: 'icon', sizes: "16x16"
     = favicon_link_tag 'safari-pinned-tab.svg', rel: 'mask-icon', color: "#5bbad5"
   %body.rails_admin
+    -# = render "layouts/rails_admin/ckeditor_base_path"
     #admin-js{:'data-i18n-options' => I18n.t("admin.js").to_json}
     -# Initialize JS simple i18n
     :javascript

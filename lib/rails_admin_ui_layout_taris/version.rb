@@ -1,3 +1,3 @@
 module RailsAdminUiLayoutTaris
-  VERSION = '1.2.11'.freeze
+  VERSION = '1.2.14'.freeze
 end
