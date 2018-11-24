@@ -1,0 +1,13 @@
+:ruby
+  url = (ENV['RAILS_URL'].blank? || ENV['RAILS_RELATIVE_URL_ROOT'].blank?) ? "http://localhost:3000/assets/ckeditor/" : "#{ENV['RAILS_URL']}#{ENV['RAILS_RELATIVE_URL_ROOT']}/assets/ckeditor/"
+  js_data = {
+    # jspath: field.location ? field.location : url + field.base_location + "ckeditor.js",
+    jspath: url + "ckeditor.js",
+    base_location: url,
+    options: {
+      # customConfig: field.config_js ? field.config_js : url + field.base_location + "config.js"
+      customConfig: url + "config.js"
+    }
+  }
+
+= form.text_area field.method_name, field.html_attributes.reverse_merge(data: { richtext: 'ckeditor', options: js_data.to_json }).reverse_merge({ value: field.form_value })
