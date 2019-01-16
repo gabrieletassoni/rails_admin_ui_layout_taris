@@ -21,13 +21,13 @@ $(document).on 'rails_admin.dom_ready', (e, content) ->
 
     # datetime picker
     $.fn.datetimepicker.defaults.icons =
-      time: 'fa fa-clock-o'
+      time: 'fa fa-clock'
       date: 'fa fa-calendar'
       up: 'fa fa-chevron-up'
       down: 'fa fa-chevron-down'
       previous: 'fa fa-angle-double-left'
       next: 'fa fa-angle-double-right'
-      today: 'fa fa-dot-circle-o'
+      today: 'fa fa-dot-circle'
       clear: 'fa fa-trash'
       close: 'fa fa-times'
 
