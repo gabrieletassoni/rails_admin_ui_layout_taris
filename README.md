@@ -1,2 +1,2 @@
 # Credits
-atom by James Christopher from the Noun Project
+Initially based on work from James Christopher from the Noun Project
